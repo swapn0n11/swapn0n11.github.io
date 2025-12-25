@@ -1,0 +1,38 @@
+name: Fetch GitHub Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */12 * * *"
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Fetch GitHub data
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          mkdir -p data
+          curl -s \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            https://api.github.com/users/swapn0n11/repos \
+            | jq '[.[] | {
+                name: .name,
+                description: .description,
+                stars: .stargazers_count,
+                url: .html_url,
+                language: .language
+              }]' > data/github.json
+
+      - name: Commit data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/github.json
+          git commit -m "Update GitHub data" || echo "No changes"
+          git push
