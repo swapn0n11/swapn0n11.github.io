@@ -26,5 +26,3 @@ It’s designed to be minimal, fast, and visually sharp — focused on presentin
 - **GitHub Pages** — zero-cost deployment
 
 No frameworks. No nonsense.
-
----
