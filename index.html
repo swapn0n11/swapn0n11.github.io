@@ -2,160 +2,147 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Swapnonil Nandi - Portfolio</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>Swapnonil Nandi | Web Developer</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#50cefb",
-                        "background-light": "#f5f8f8",
-                        "background-dark": "#0f1e23",
+                        "primary": "#00F0FF",
+                        "dark-bg": "#0B0F14",
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "body": ["Noto Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
+                        "display": ["Space Grotesk", "sans-serif"]
                     },
                 },
             },
         }
     </script>
+<style type="text/tailwindcss">
+        @layer components {
+            .glass-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .glass-nav {
+                background: rgba(11, 15, 20, 0.7);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .glow-primary {
+                box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            }
+            .text-glow {
+                text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            }
+            .bg-grid {
+                background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                                  linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+                background-size: 40px 40px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display selection:bg-primary selection:text-black overflow-x-hidden min-h-screen flex flex-col relative">
-<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px]"></div>
-<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-900/20 blur-[120px]"></div>
-<div class="absolute top-[40%] left-[60%] w-[30%] h-[30%] rounded-full bg-cyan-900/20 blur-[100px]"></div>
-</div>
-<nav class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-light/50 dark:bg-background-dark/30 border-b border-white/5">
-<div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-<div class="flex items-center justify-between h-20">
+<body class="bg-dark-bg font-display text-white min-h-screen relative overflow-x-hidden selection:bg-primary/30">
+<div class="fixed inset-0 bg-grid pointer-events-none"></div>
+<div class="fixed top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="fixed bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="relative flex min-h-screen flex-col">
+<nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 <div class="flex items-center gap-3">
-<div class="flex items-center justify-center size-8 rounded bg-gradient-to-br from-primary to-blue-600 text-background-dark">
-<span class="material-symbols-outlined text-[20px] font-bold">code</span>
+<img alt="Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVEfvxGjLVa-yXqxnh-vwCadPC58xxQbh5Zh-c9nJyB9wt9lfECAklLdGR357eBFuELdm_uwD1AWfo670AsUEr5iW2Qcw9Zrm0J3-hx7ATcZ_vD8VOgERTAOydrG1jtUfKszYJZdFWYkPNxumWezI4eK5LFnTLtL56BKXyqftR-Fr1uJ7iwnwBXeDhd4sCN0gFvISw6IV4A75MMKifbxJ6O5GMBtehzIReo0AnYLOfnkK75y2W8uNWuhPxNHoxt1GZtD2kNhCpoq4"/>
+<span class="text-xl font-bold tracking-tighter hidden sm:block">SWAPNONIL</span>
 </div>
-<span class="text-lg font-bold tracking-tight">Swapnonil Nandi</span>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-white/70 hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium text-white/70 hover:text-primary transition-colors" href="#">Skills</a>
+<a class="text-sm font-medium text-white/70 hover:text-primary transition-colors" href="#">Projects</a>
+<a class="px-5 py-2.5 bg-primary/10 border border-primary/20 rounded-lg text-primary text-sm font-semibold hover:bg-primary/20 transition-all glow-primary" href="mail.html">
+                        Contact Me
+                    </a>
 </div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="https://github.com/swapn0n11" target="_blank">Work</a>
-<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#">About</a>
-<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#">Mail Me</a>
-</div>
-<div class="md:hidden text-white">
-<span class="material-symbols-outlined cursor-pointer">menu</span>
-</div>
-</div>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
 </div>
 </nav>
-<main class="flex-grow flex items-center justify-center px-4 py-12 relative z-10 w-full">
-<div class="w-full max-w-5xl">
-<div class="relative bg-white/5 dark:bg-[#1a2c34]/40 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-16 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] overflow-hidden group">
-<div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-50 pointer-events-none"></div>
-<div class="relative z-10 grid md:grid-cols-5 gap-12 items-center">
-<div class="md:col-span-3 flex flex-col gap-6">
-<div class="inline-flex items-center gap-2 text-primary font-bold text-sm tracking-widest uppercase">
-<span class="w-8 h-[2px] bg-primary"></span>
-                        Hello, I am
-                    </div>
-<h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-                        Swapnonil Nandi
-                    </h1>
-<h2 class="text-xl md:text-2xl font-medium text-slate-300">
-                        Web Developer <span class="text-slate-500 mx-2">/</span> <span class="text-primary/90">Frontend Engineer</span>
-</h2>
-<p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
-                        Crafting immersive web experiences with clean code and modern design principles. I specialize in building responsive, user-centric interfaces that blend aesthetics with functionality.
-                    </p>
-<div class="flex flex-wrap items-center gap-8 mt-6">
-<a class="relative group/btn flex items-center justify-center gap-3 bg-primary text-[#101e23] text-lg font-bold py-4 px-10 rounded-lg transition-all hover:shadow-[0_0_30px_rgba(80,206,251,0.6)] hover:-translate-y-1 active:scale-95" href="#">
-<span>Contact Me</span>
-<span class="material-symbols-outlined text-[22px] transition-transform group-hover/btn:translate-x-1.5">arrow_forward</span>
-</a>
-<div class="flex items-center gap-4">
-<a class="p-2.5 text-slate-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-lg border border-white/5" href="https://github.com/swapn0n11" target="_blank" title="View Github">
-<span class="material-symbols-outlined block" style="font-size: 24px;">code</span>
-</a>
-<a class="p-2.5 text-slate-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-lg border border-white/5" href="https://github.com/swapn0n11" target="_blank" title="View Work">
-<span class="material-symbols-outlined block" style="font-size: 24px;">work</span>
-</a>
-<a class="p-2.5 text-slate-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-lg border border-white/5" href="mailto:lightforce1207@protonmail.com" title="Email Me">
-<span class="material-symbols-outlined block" style="font-size: 24px;">alternate_email</span>
-</a>
-</div>
-</div>
-</div>
-<div class="md:col-span-2 relative hidden md:block h-full min-h-[300px]">
-<div class="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-[320px] aspect-[4/5] bg-gradient-to-b from-slate-800 to-slate-900 rounded-xl border border-slate-700/50 shadow-2xl rotate-3 flex flex-col overflow-hidden">
-<div class="h-8 bg-slate-950 border-b border-slate-700 flex items-center px-3 gap-1.5">
-<div class="size-2.5 rounded-full bg-red-500/80"></div>
-<div class="size-2.5 rounded-full bg-yellow-500/80"></div>
-<div class="size-2.5 rounded-full bg-green-500/80"></div>
-</div>
-<div class="p-5 font-mono text-xs text-slate-400 flex flex-col gap-2">
-<div class="flex gap-2">
-<span class="text-purple-400">const</span>
-<span class="text-blue-400">developer</span>
-<span class="text-slate-300">=</span>
-<span class="text-yellow-300">{</span>
-</div>
-<div class="pl-4 flex gap-2">
-<span class="text-slate-300">name:</span>
-<span class="text-green-400">'Swapnonil'</span>,
-                            </div>
-<div class="pl-4 flex gap-2">
-<span class="text-slate-300">role:</span>
-<span class="text-green-400">'Frontend Engineer'</span>,
-                            </div>
-<div class="pl-4 flex gap-2">
-<span class="text-slate-300">skills:</span>
-<span class="text-yellow-300">[</span>
-<span class="text-green-400">'React'</span>,
-                                <span class="text-green-400">'Tailwind'</span>
-<span class="text-yellow-300">]</span>,
-                            </div>
-<div class="pl-4 flex gap-2">
-<span class="text-slate-300">hardWorker:</span>
-<span class="text-orange-400">true</span>
-</div>
-<div class="flex gap-2">
-<span class="text-yellow-300">}</span>;
-                            </div>
-<div class="mt-4 opacity-50">
-<span class="text-slate-500">// Ready to build</span>
-</div>
-</div>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
-</div>
-<div class="absolute -bottom-4 -left-4 bg-[#101e23] border border-slate-700 rounded-lg p-3 shadow-lg flex items-center gap-3">
-<div class="rounded-full bg-green-500/20 p-2">
-<span class="material-symbols-outlined text-green-400 text-sm">check_circle</span>
-</div>
+<main class="flex-1 flex items-center justify-center pt-20 px-6">
+<div class="max-w-4xl w-full py-20">
+<div class="glass-card rounded-3xl p-8 md:p-16 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="space-y-8">
 <div>
-<p class="text-xs text-slate-400">Status</p>
-<p class="text-xs font-bold text-white">Open to Work</p>
+<span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 border border-primary/20">Available for Hire</span>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4">
+                                Swapnonil <span class="text-primary text-glow">Nandi</span>
+</h1>
+<h2 class="text-xl md:text-2xl text-white/80 font-medium mb-6">
+                                Web Developer <span class="text-primary/40 mx-2">/</span> Frontend Engineer
+                            </h2>
+<p class="text-lg text-white/60 leading-relaxed max-w-2xl">
+                                Crafting immersive digital experiences through clean code and futuristic design. Specializing in high-performance frontend architectures and glassmorphic interfaces that push the boundaries of the modern web.
+                            </p>
+</div>
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<a class="px-8 py-4 bg-primary text-dark-bg font-bold rounded-xl transition-all hover:shadow-[0_0_30px_rgba(0,240,251,0.5)] hover:-translate-y-1 active:scale-95 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl">visibility</span>
+                                View Work
+                            </a>
+<a class="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl transition-all hover:bg-white/10 hover:border-white/20 flex items-center gap-2" href="https://github.com/swapn0n11" target="_blank">
+<span class="material-symbols-outlined text-xl">terminal</span>
+                                Code
+                            </a>
+<a class="p-4 rounded-xl border border-white/10 hover:border-primary/50 text-white/60 hover:text-primary transition-all group" href="mailto:lightforce1207@protonmail.com" title="Direct Email">
+<span class="material-symbols-outlined !text-2xl group-hover:scale-110 transition-transform">alternate_email</span>
+</a>
 </div>
 </div>
+<div class="absolute bottom-10 right-10 opacity-10 pointer-events-none hidden lg:block">
+<span class="material-symbols-outlined !text-[120px]">code_blocks</span>
 </div>
+</div>
+<div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
+<div class="text-center md:text-left">
+<div class="text-white/40 text-xs uppercase tracking-widest mb-1">Status</div>
+<div class="text-white font-medium flex items-center justify-center md:justify-start gap-2">
+<span class="size-2 bg-green-500 rounded-full animate-pulse"></span>
+                            Remote Ready
+                        </div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-white/40 text-xs uppercase tracking-widest mb-1">Focus</div>
+<div class="text-white font-medium">React / Next.js</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-white/40 text-xs uppercase tracking-widest mb-1">Design</div>
+<div class="text-white font-medium">Tailwind CSS</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-white/40 text-xs uppercase tracking-widest mb-1">Experience</div>
+<div class="text-white font-medium">2+ Years</div>
 </div>
 </div>
 </div>
 </main>
-<footer class="relative z-10 py-6 border-t border-white/5 bg-background-dark/50 backdrop-blur-sm">
-<div class="max-w-7xl mx-auto px-6 text-center">
-<p class="text-slate-500 text-sm">© 2024 Swapnonil Nandi. All rights reserved.</p>
+<footer class="py-12 px-6 border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<a class="text-white/40 hover:text-white transition-colors" href="https://github.com/swapn0n11">GitHub</a>
+<a class="text-white/40 hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="text-white/40 hover:text-white transition-colors" href="#">X</a>
+</div>
+<div class="text-white/20 text-sm">
+                    © 2024 Swapnonil Nandi. Built with precision and passion.
+                </div>
 </div>
 </footer>
+</div>
 
 </body></html>
