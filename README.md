@@ -28,6 +28,3 @@ It’s designed to be minimal, fast, and visually sharp — focused on presentin
 No frameworks. No nonsense.
 
 ---
-
-## 📁 Project Structure
-
