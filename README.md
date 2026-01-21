@@ -1,1 +1,33 @@
-### README.md for Glassveil Portfolio ```markdown # 🌌 Glassveil – Personal Portfolio **Glassveil** is a visually striking, dark-themed, glassmorphic one-page portfolio designed for **Swapnonil Nandi**. It showcases a modern aesthetic with a focus on frontend expertise, premium design sensibilities, and a futuristic user experience. --- ## ✨ Features - 🌑 **Dark Glassmorphic UI:** Layered translucent panels with subtle blur effects and high-contrast accents. - 🚀 **Two-Page Architecture:** - **Main Page (`index.html`):** High-impact hero section, bio, and quick-action links. - **Mail Me Page (`mail.html`):** Dedicated contact hub with integrated social links. - 🎨 **Modern Tech Aesthetic:** Built with a "Cyber-minimalism" vibe using a near-black palette and Electric Cyan accents. - 📱 **Fully Connected:** Integrated links to GitHub, LinkedIn, X, and a functional contact flow. --- ## 🛠️ Technical Stack - **Frontend:** HTML5, CSS3 (Tailwind CSS) - **Design Philosophy:** Glassmorphism, Minimalist UI, VisionOS-inspired depth. - **Typography:** Inter / Space Grotesk / JetBrains Mono. --- ## 📁 Project Structure ```text ├── index.html # Main landing page & introduction ├── mail.html # Dedicated contact & socials page ├── assets/ # Images, icons, and sample logo └── css/ # Custom Tailwind/CSS styles ``` --- ## 🔗 Connect with Me - **GitHub:** [swapn0n11](https://github.com/swapn0n11) - **LinkedIn:** [swapnon11](https://linkedin.com/in/swapnon11) - **X (Twitter):** [swapn0n11](https://x.com/swapn0n11) - **Primary Email:** [lightforce1207@protonmail.com](mailto:lightforce1207@protonmail.com) --- ## 🚀 Getting Started 1. Clone the repository. 2. Open `index.html` in your favorite browser. 3. To enable the contact form, consider using a service like **Formspree** or **Netlify Forms**. --- *Designed with ❤️ by Swapnonil Nandi.* ``` You can copy this directly into a file named `README.md` in your GitHub repository.
+# Glassveil — Personal Portfolio Website
+
+**Glassveil** is a sleek, dark-themed personal portfolio website built by **Swapnonil Nandi**.  
+It’s designed to be minimal, fast, and visually sharp — focused on presenting identity, skills, and contact points without unnecessary bloat.
+
+🔗 **Live Site:** https://swapnonil.me  
+📦 **Repository:** https://github.com/swapn0n11/swapn0n11.github.io
+
+---
+
+## ✨ Highlights
+
+- ⚡ **Blazing fast** static site (no backend, no tracking)
+- 🌑 **Dark / glassmorphic aesthetic** with clean typography
+- 🧭 Simple navigation with a clear contact flow
+- 🧱 Built to scale — easy to extend with JS or backend later
+- 🔒 **Privacy-respecting** by default (no analytics, no cookies)
+
+---
+
+## 🛠 Tech Stack
+
+- **HTML5** — semantic, clean markup  
+- **CSS3** — modern styling with utility-first approach  
+- **Tailwind CSS** — rapid UI development  
+- **GitHub Pages** — zero-cost deployment
+
+No frameworks. No nonsense.
+
+---
+
+## 📁 Project Structure
+
