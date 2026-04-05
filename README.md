@@ -1,10 +1,11 @@
-# Glassveil — Personal Portfolio Website
+# Personal Portfolio Website
 
-**Glassveil** is a sleek, dark-themed personal portfolio website built by **Swapnonil Nandi**.  
+This is a sleek, dark-themed personal portfolio website built by **Swapnonil Nandi**.  
 It’s designed to be minimal, fast, and visually sharp — focused on presenting identity, skills, and contact points without unnecessary bloat.
 
 🔗 **Live Site:** https://swapnonil.me  
 📦 **Repository:** https://github.com/swapn0n11/swapn0n11.github.io
+🗝️ **Code Name:** GlassVeil
 
 ---
 
