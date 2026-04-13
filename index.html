@@ -1,160 +1,476 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Swapnonil Nandi | Web Developer</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="icon" href="/apple-touch-icon.png" type="image/png">
-<script src="phantom-tracker.js" defer></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#00F0FF",
-                        "dark-bg": "#0B0F14",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"]
-                    },
-                },
-            },
-        }
-    </script>
-<style type="text/tailwindcss">
-        @layer components {
-            .glass-card {
-                background: rgba(255, 255, 255, 0.03);
-                backdrop-filter: blur(16px);
-                -webkit-backdrop-filter: blur(16px);
-                border: 1px solid rgba(255, 255, 255, 0.08);
-            }
-            .glass-nav {
-                background: rgba(11, 15, 20, 0.7);
-                backdrop-filter: blur(12px);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-            .glow-primary {
-                box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-            }
-            .text-glow {
-                text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-            }
-            .bg-grid {
-                background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-                                  linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-                background-size: 40px 40px;
-            }
-        }
-    </style>
-</head>
-<body class="bg-dark-bg font-display text-white min-h-screen relative overflow-x-hidden selection:bg-primary/30">
-<div class="fixed inset-0 bg-grid pointer-events-none"></div>
-<div class="fixed top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
-<div class="fixed bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
-<div class="relative flex min-h-screen flex-col">
-<nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<!-- <img alt="Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVEfvxGjLVa-yXqxnh-vwCadPC58xxQbh5Zh-c9nJyB9wt9lfECAklLdGR357eBFuELdm_uwD1AWfo670AsUEr5iW2Qcw9Zrm0J3-hx7ATcZ_vD8VOgERTAOydrG1jtUfKszYJZdFWYkPNxumWezI4eK5LFnTLtL56BKXyqftR-Fr1uJ7iwnwBXeDhd4sCN0gFvISw6IV4A75MMKifbxJ6O5GMBtehzIReo0AnYLOfnkK75y2W8uNWuhPxNHoxt1GZtD2kNhCpoq4"/> -->
-<span class="text-xl font-bold tracking-tighter hidden sm:block">SWAPNONIL NANDI</span>
-</div>
-<div class="hidden md:flex items-center gap-10">
-<!-- <a class="text-sm font-medium text-white/70 hover:text-primary transition-colors" href="#">About</a>
-<a class="text-sm font-medium text-white/70 hover:text-primary transition-colors" href="#">Skills</a> -->
-<!-- <a class="text-sm font-medium text-white/70 hover:text-primary transition-colors" href="https://github.com/swapn0n11?tab=repositories">View Work</a>
-<a class="px-5 py-2.5 bg-primary/10 border border-primary/20 rounded-lg text-primary text-sm font-semibold hover:bg-primary/20 transition-all glow-primary" href="mail.html">
-                        Contact Me
-                    </a> -->
-</div>
-<!-- <button class="md:hidden text-white">
-<span class="material-symbols-outlined">menu</span>
-</button> -->
-</div>
-</nav>
-<main class="flex-1 flex items-center justify-center pt-20 px-6">
-<div class="max-w-4xl w-full py-20">
-<div class="glass-card rounded-3xl p-8 md:p-16 relative overflow-hidden">
-<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-<div class="space-y-8">
-<div>
-<span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6 border border-primary/20">Available for Hire</span>
-<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4">
-                                Swapnonil <span class="text-primary text-glow">Nandi</span>
-</h1>
-<h2 class="text-xl md:text-2xl text-white/80 font-medium mb-6">
-                                Web Developer <span class="text-primary/40 mx-2">/</span> Frontend Engineer
-                            </h2>
-<p class="text-lg text-white/60 leading-relaxed max-w-2xl">
-                                Crafting immersive digital experiences through clean code and futuristic design. Specializing in high-performance frontend architectures and glassmorphic interfaces that push the boundaries of the modern web.
-                            </p>
-</div>
-<div class="flex flex-wrap items-center gap-4 pt-4">
-<form action="https://swapnonil.me/projects.html" method="get">
-  <button
-    type="submit"
-    class="px-8 py-4 bg-primary text-dark-bg font-bold rounded-xl transition-all hover:shadow-[0_0_30px_rgba(0,240,251,0.5)] hover:-translate-y-1 active:scale-95 flex items-center gap-2"
-  >
-    <span class="material-symbols-outlined text-xl">visibility</span>
-    View Work
-  </button>
-</form>
-<a class="px-8 py-4 bg-primary/10 border border-primary/20 rounded-lg text-primary text-sm font-semibold hover:bg-primary/20 transition-all glow-primary flex items-center gap-2"
-   href="mail.html">
-  <span class="material-symbols-outlined text-base">mail</span>
-  Contact Me
-</a>
-<!-- <a class="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl transition-all hover:bg-white/10 hover:border-white/20 flex items-center gap-2" href="https://github.com/swapn0n11" target="_blank">
-<span class="material-symbols-outlined text-xl">terminal</span>
-                                Code
-                            </a> -->
-<a class="p-4 rounded-xl border border-white/10 hover:border-primary/50 text-white/60 hover:text-primary transition-all group" href="mailto:lightforce1207@protonmail.com" title="Direct Email">
-<span class="material-symbols-outlined !text-2xl group-hover:scale-110 transition-transform">alternate_email</span>
-</a>
-</div>
-</div>
-<div class="absolute bottom-10 right-10 opacity-10 pointer-events-none hidden lg:block">
-<span class="material-symbols-outlined !text-[120px]">code_blocks</span>
-</div>
-</div>
-<div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
-<div class="text-center md:text-left">
-<div class="text-white/40 text-xs uppercase tracking-widest mb-1">Status</div>
-<div class="text-white font-medium flex items-center justify-center md:justify-start gap-2">
-<span class="size-2 bg-green-500 rounded-full animate-pulse"></span>
-                            Remote Ready
-                        </div>
-</div>
-<div class="text-center md:text-left">
-<div class="text-white/40 text-xs uppercase tracking-widest mb-1">Focus</div>
-<div class="text-white font-medium">React / Next.js</div>
-</div>
-<div class="text-center md:text-left">
-<div class="text-white/40 text-xs uppercase tracking-widest mb-1">Design</div>
-<div class="text-white font-medium">Tailwind CSS</div>
-</div>
-<div class="text-center md:text-left">
-<div class="text-white/40 text-xs uppercase tracking-widest mb-1">Experience</div>
-<div class="text-white font-medium">2+ Years</div>
-</div>
-</div>
-</div>
-</main>
-<footer class="py-12 px-6 border-t border-white/5">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-<div class="flex items-center gap-6">
-<a class="text-white/40 hover:text-white transition-colors" href="https://github.com/swapn0n11">GitHub</a>
-<a class="text-white/40 hover:text-white transition-colors" href="https://linkedin.com/in/swapnon11">LinkedIn</a>
-<a class="text-white/40 hover:text-white transition-colors" href="https://x.com/swapn_n11">X</a>
-</div>
-<div class="text-white/20 text-sm">
-                    © 2026 Swapnonil Nandi. Built with precision and passion.
-                </div>
-</div>
-</footer>
-</div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swapnonil Nandi — Founder @ Phantom Labs</title>
+  <meta name="description" content="Software developer & security researcher. Crafting privacy-first digital experiences. Founder @ Phantom Labs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-</body></html>
+    :root {
+      --bg: #05050f;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.07);
+      --border-glow: rgba(123,97,255,0.35);
+      --accent: #7b61ff;
+      --accent2: #a78bfa;
+      --accent3: #38bdf8;
+      --green: #4ade80;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --mono: 'Space Mono', monospace;
+      --display: 'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--display);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Background ── */
+    .bg-layer {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+    }
+    .bg-layer::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 5%,  rgba(123,97,255,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 90% 90%,  rgba(56,189,248,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 60% 30%,  rgba(167,139,250,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 30% 80%,  rgba(123,97,255,0.06) 0%, transparent 55%);
+      animation: bgPulse 12s ease-in-out infinite alternate;
+    }
+    @keyframes bgPulse { 0% { opacity:.75; } 100% { opacity:1; } }
+    .bg-layer::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(123,97,255,0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(123,97,255,0.032) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    /* Scanline */
+    .scanline {
+      position: fixed; top: -2px; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      animation: scan 1.4s ease forwards;
+      z-index: 200; pointer-events: none;
+    }
+    @keyframes scan { 0% { top:-2px; opacity:1; } 100% { top:100%; opacity:0; } }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(5,5,15,0.55);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 1.5rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), #5b21b6);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 14px rgba(123,97,255,0.45);
+      flex-shrink: 0;
+    }
+    .nav-logo svg { width: 15px; height: 15px; fill: #fff; }
+    .nav-name { font-family: var(--display); font-weight: 700; font-size: 0.95rem; color: #fff; letter-spacing: -0.01em; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-link {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: 100px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .nav-link:hover { color: var(--accent2); border-color: var(--border-glow); background: rgba(123,97,255,0.06); }
+    .nav-link.active { color: var(--accent2); border-color: rgba(123,97,255,0.25); background: rgba(123,97,255,0.08); }
+
+    @media (max-width: 600px) { .nav-links { display: none; } }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; z-index: 1;
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 1.5rem 4rem;
+      min-height: calc(100vh - 64px);
+    }
+
+    .hero-inner {
+      max-width: 780px; width: 100%;
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 0;
+    }
+
+    /* Brand row */
+    .brand-row {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 1.8rem;
+      opacity: 0; animation: fadeUp 0.5s ease forwards 0.1s;
+    }
+    .ghost-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent), 0 0 28px rgba(123,97,255,0.5);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.6);opacity:0.55;} }
+    .brand-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.22em; color: var(--accent2); text-transform: uppercase; }
+
+    /* Name */
+    .hero-name {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      line-height: 0.95; letter-spacing: -0.04em;
+      color: #fff; margin-bottom: 1.2rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.25s;
+    }
+    .hero-name .last { display: block; }
+    .hero-name .accent-word {
+      background: linear-gradient(135deg, var(--accent2) 0%, var(--accent3) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* Role */
+    .hero-role {
+      display: flex; align-items: center; gap: 0.8rem;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.5s ease forwards 0.4s;
+    }
+    .role-text { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); letter-spacing: 0.06em; }
+    .role-divider { width: 40px; height: 1px; background: linear-gradient(90deg, var(--border-glow), transparent); }
+
+    /* Bio */
+    .hero-bio {
+      font-size: 1rem; color: var(--muted); line-height: 1.75;
+      max-width: 520px; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.5s ease forwards 0.5s;
+    }
+    .hero-bio strong { color: var(--text); font-weight: 600; }
+
+    /* Status chips */
+    .chips {
+      display: flex; flex-wrap: wrap; gap: 0.55rem;
+      margin-bottom: 2.8rem;
+      opacity: 0; animation: fadeUp 0.5s ease forwards 0.6s;
+    }
+    .chip {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+    .chip-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent2); flex-shrink: 0;
+    }
+    .chip-dot.green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+    .chip-dot.blue  { background: var(--accent3); }
+    .chip-dot.purple{ background: var(--accent2); }
+
+    /* CTA row */
+    .cta-row {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      margin-bottom: 3.5rem;
+      opacity: 0; animation: fadeUp 0.5s ease forwards 0.7s;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.85rem 1.6rem;
+      background: linear-gradient(135deg, var(--accent), #5b21b6);
+      border: none; border-radius: 12px;
+      color: #fff; font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 0 24px rgba(123,97,255,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.13), transparent);
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(123,97,255,0.55); }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.85rem 1.6rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text); font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--border-glow); color: var(--accent2); background: rgba(123,97,255,0.06); transform: translateY(-2px); }
+    .btn-ghost svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* Social row */
+    .social-row {
+      display: flex; align-items: center; gap: 0.5rem;
+      opacity: 0; animation: fadeUp 0.5s ease forwards 0.85s;
+    }
+    .social-label { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-right: 0.3rem; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: var(--surface); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .social-btn svg { width: 15px; height: 15px; fill: var(--muted); transition: fill 0.2s; }
+    .social-btn:hover { border-color: var(--border-glow); background: rgba(123,97,255,0.08); }
+    .social-btn:hover svg { fill: var(--accent2); }
+
+    .social-divider { width: 1px; height: 20px; background: var(--border); margin: 0 0.3rem; }
+
+    .mailto-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: var(--mono); font-size: 0.6rem;
+      color: var(--muted); text-decoration: none; letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .mailto-link:hover { color: var(--accent2); }
+    .mailto-link svg { width: 12px; height: 12px; fill: currentColor; }
+
+    /* Floating card (decorative) */
+    .float-card {
+      position: absolute; right: 4%; top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 1.5rem;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 0 0 1px rgba(123,97,255,0.08), 0 30px 70px rgba(0,0,0,0.5);
+      animation: floatCard 0.8s cubic-bezier(0.16,1,0.3,1) forwards, floatY 6s ease-in-out infinite 1s;
+      opacity: 0;
+    }
+    @keyframes floatCard { to { opacity: 1; } }
+    @keyframes floatY {
+      0%,100% { transform: translateY(-50%) translateY(0px); }
+      50% { transform: translateY(-50%) translateY(-12px); }
+    }
+
+    .fc-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
+    .fc-label { font-family: var(--mono); font-size: 0.58rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
+    .fc-badge {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-family: var(--mono); font-size: 0.55rem; color: var(--green); letter-spacing: 0.08em;
+    }
+    .fc-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s infinite; }
+
+    .fc-stat { margin-bottom: 1rem; }
+    .fc-stat-label { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .fc-bar { height: 4px; border-radius: 100px; background: var(--border); overflow: hidden; }
+    .fc-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--accent), var(--accent3)); animation: barFill 1.5s ease forwards; transform-origin: left; transform: scaleX(0); }
+    @keyframes barFill { to { transform: scaleX(1); } }
+
+    .fc-divider { height: 1px; background: var(--border); margin: 1rem 0; }
+
+    .fc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .fc-tag {
+      padding: 0.2rem 0.55rem; border-radius: 6px;
+      background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.18);
+      font-family: var(--mono); font-size: 0.57rem; color: var(--accent2); letter-spacing: 0.05em;
+    }
+
+    .fc-dot-grid {
+      position: absolute; bottom: 1rem; right: 1rem;
+      display: grid; grid-template-columns: repeat(4, 3px); gap: 3px; opacity: 0.2;
+    }
+    .fc-dot-grid span { width: 3px; height: 3px; border-radius: 50%; background: var(--accent2); }
+
+    @media (max-width: 900px) { .float-card { display: none; } }
+
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.8rem;
+    }
+    .footer-left { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.06em; }
+    .footer-left span { color: var(--accent); }
+    .footer-right { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.06em; opacity: 0.5; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1rem 2rem; min-height: auto; }
+      .hero-name { font-size: clamp(2.5rem, 13vw, 4rem); }
+      footer { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+<div class="scanline"></div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+      </div>
+      <span class="nav-name">Swapnonil Nandi</span>
+    </a>
+    <div class="nav-links">
+      <a href="/projects.html" class="nav-link">Projects</a>
+      <a href="/mail.html" class="nav-link">Contact</a>
+      <a href="/card.html" class="nav-link active">Card</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+
+  <!-- Floating stats card -->
+  <div class="float-card" style="animation-delay:0.9s">
+    <div class="fc-dot-grid">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="fc-header">
+      <span class="fc-label">// status</span>
+      <div class="fc-badge"><div class="fc-badge-dot"></div>online</div>
+    </div>
+
+    <div class="fc-stat">
+      <div class="fc-stat-label">React / Next.js</div>
+      <div class="fc-bar"><div class="fc-bar-fill" style="width:90%;animation-delay:1.2s"></div></div>
+    </div>
+    <div class="fc-stat">
+      <div class="fc-stat-label">Tailwind CSS</div>
+      <div class="fc-bar"><div class="fc-bar-fill" style="width:85%;animation-delay:1.4s"></div></div>
+    </div>
+    <div class="fc-stat">
+      <div class="fc-stat-label">Python / Security</div>
+      <div class="fc-bar"><div class="fc-bar-fill" style="width:75%;animation-delay:1.6s"></div></div>
+    </div>
+
+    <div class="fc-divider"></div>
+
+    <div class="fc-tags">
+      <span class="fc-tag">Remote Ready</span>
+      <span class="fc-tag">2+ Years</span>
+      <span class="fc-tag">Phantom Labs</span>
+      <span class="fc-tag">Open Source</span>
+    </div>
+  </div>
+
+  <div class="hero-inner">
+
+    <div class="brand-row">
+      <div class="ghost-dot"></div>
+      <span class="brand-label">phantom_labs // founder</span>
+    </div>
+
+    <h1 class="hero-name">
+      Swapnonil
+      <span class="last accent-word">Nandi</span>
+    </h1>
+
+    <div class="hero-role">
+      <span class="role-text">Software Developer / Frontend Engineer</span>
+      <div class="role-divider"></div>
+    </div>
+
+    <p class="hero-bio">
+      Crafting <strong>immersive digital experiences</strong> through clean code and futuristic design.
+      Specializing in high-performance frontend architectures and
+      <strong>privacy-first</strong> glassmorphic interfaces that push the boundaries of the modern web.
+    </p>
+
+    <div class="chips">
+      <div class="chip"><div class="chip-dot green"></div>Available for Hire</div>
+      <div class="chip"><div class="chip-dot blue"></div>Remote Ready</div>
+      <div class="chip"><div class="chip-dot purple"></div>React / Next.js</div>
+      <div class="chip"><div class="chip-dot purple"></div>Tailwind CSS</div>
+      <div class="chip"><div class="chip-dot"></div>2+ Years Exp.</div>
+    </div>
+
+    <div class="cta-row">
+      <a href="/projects.html" class="btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+        View Work
+      </a>
+      <a href="/mail.html" class="btn-ghost">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Contact Me
+      </a>
+    </div>
+
+    <div class="social-row">
+      <span class="social-label">Find me</span>
+
+      <a href="https://github.com/swapn0n11" target="_blank" rel="noopener" class="social-btn" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+      </a>
+
+      <a href="https://linkedin.com/in/swapnon11" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+
+      <a href="https://x.com/swapn_n11" target="_blank" rel="noopener" class="social-btn" title="X / Twitter">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.733-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+
+      <div class="social-divider"></div>
+
+      <a href="mailto:lightforce1207@protonmail.com" class="mailto-link" title="Direct Email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        alt email
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left"><span>phantom_labs</span> // © 2026 Swapnonil Nandi. Built with precision and passion.</div>
+  <div class="footer-right">swapnonil.me</div>
+</footer>
+
+</body>
+</html>
