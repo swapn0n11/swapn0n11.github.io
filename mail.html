@@ -1,164 +1,509 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mail Me - Swapnonil Nandi</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="phantom-tracker.js" defer></script>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#50cefb",
-                        "background-light": "#f5f8f8",
-                        "background-dark": "#0f1e23",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "body": ["Noto Sans", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mail Me — Swapnonil Nandi</title>
+  <meta name="description" content="Get in touch with Swapnonil Nandi — Founder @ Phantom Labs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #05050f;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.07);
+      --border-glow: rgba(123,97,255,0.35);
+      --accent: #7b61ff;
+      --accent2: #a78bfa;
+      --accent3: #38bdf8;
+      --green: #4ade80;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --mono: 'Space Mono', monospace;
+      --display: 'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--display);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background */
+    .bg-layer {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+    }
+    .bg-layer::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 10%, rgba(123,97,255,0.13) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 85% 85%, rgba(56,189,248,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 60% at 50% 40%, rgba(167,139,250,0.04) 0%, transparent 60%);
+      animation: bgPulse 10s ease-in-out infinite alternate;
+    }
+    @keyframes bgPulse { 0% { opacity: 0.7; } 100% { opacity: 1; } }
+    .bg-layer::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(123,97,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(123,97,255,0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    /* Scanline */
+    .scanline {
+      position: fixed; top: -2px; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      animation: scan 1.2s ease forwards;
+      z-index: 100; pointer-events: none;
+    }
+    @keyframes scan { 0% { top: -2px; opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(5,5,15,0.6);
+    }
+
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 0.7rem;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), #5b21b6);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 12px rgba(123,97,255,0.4);
+    }
+
+    .nav-logo svg { width: 15px; height: 15px; fill: #fff; }
+
+    .nav-name {
+      font-family: var(--display); font-weight: 700;
+      font-size: 0.95rem; color: #fff; letter-spacing: -0.01em;
+    }
+
+    .nav-tag {
+      font-family: var(--mono); font-size: 0.6rem;
+      color: var(--accent2); letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid rgba(123,97,255,0.2);
+      border-radius: 100px;
+      background: rgba(123,97,255,0.06);
+    }
+
+    /* Main */
+    main {
+      position: relative; z-index: 1;
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .container {
+      width: 100%; max-width: 960px;
+    }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono); font-size: 0.65rem;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 2rem; transition: color 0.2s;
+      opacity: 0; animation: fadeUp 0.5s ease forwards 0.1s;
+    }
+    .back-link:hover { color: var(--accent2); }
+    .back-link svg { width: 12px; height: 12px; fill: currentColor; }
+
+    /* Page header */
+    .page-header {
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    .brand-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+    .ghost-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(123,97,255,0.4);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { transform:scale(1);opacity:1; } 50% { transform:scale(1.5);opacity:0.6; } }
+    .brand-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; color: var(--accent2); text-transform: uppercase; }
+
+    .page-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      line-height: 1; letter-spacing: -0.03em; color: #fff;
+      margin-bottom: 0.7rem;
+    }
+    .page-title span {
+      background: linear-gradient(135deg, var(--accent2), var(--accent3));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .page-subtitle {
+      font-family: var(--mono); font-size: 0.78rem;
+      color: var(--muted); letter-spacing: 0.04em; line-height: 1.7;
+    }
+
+    /* Two column layout */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.35s;
+    }
+
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* Panel base */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      position: relative; overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .panel::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(123,97,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .panel-title {
+      font-family: var(--display); font-weight: 700;
+      font-size: 1.3rem; color: #fff;
+      margin-bottom: 0.4rem;
+    }
+    .panel-sub {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--muted); letter-spacing: 0.06em;
+      margin-bottom: 1.8rem;
+    }
+
+    /* Form */
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+
+    label {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-family: var(--mono); font-size: 0.8rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.6; }
+
+    input:focus, textarea:focus {
+      border-color: rgba(123,97,255,0.5);
+      box-shadow: 0 0 0 3px rgba(123,97,255,0.08);
+      background: rgba(123,97,255,0.04);
+    }
+
+    .submit-btn {
+      width: 100%; margin-top: 0.5rem;
+      padding: 0.9rem;
+      background: linear-gradient(135deg, var(--accent), #5b21b6);
+      border: none; border-radius: 12px;
+      color: #fff; font-family: var(--mono);
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 20px rgba(123,97,255,0.3);
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+    }
+    .submit-btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(123,97,255,0.5); }
+    .submit-btn:hover::before { opacity: 1; }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+      margin: 1.5rem 0;
+    }
+
+    /* Social links */
+    .socials { display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .social-link {
+      display: flex; align-items: center; gap: 0.9rem;
+      text-decoration: none; color: var(--text);
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: all 0.2s; position: relative; overflow: hidden;
+    }
+    .social-link::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(123,97,255,0.05);
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .social-link:hover { border-color: var(--border-glow); transform: translateX(4px); }
+    .social-link:hover::before { opacity: 1; }
+
+    .social-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: rgba(123,97,255,0.1);
+      border: 1px solid rgba(123,97,255,0.2);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .social-icon svg { width: 15px; height: 15px; fill: var(--accent2); }
+
+    .social-text { display: flex; flex-direction: column; flex: 1; }
+    .social-name { font-size: 0.88rem; color: #fff; font-family: var(--display); font-weight: 600; }
+    .social-handle { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.05em; }
+
+    .social-arrow { width: 14px; height: 14px; fill: var(--muted); opacity: 0.4; transition: opacity 0.2s, transform 0.2s; }
+    .social-link:hover .social-arrow { opacity: 1; transform: translateX(3px); }
+
+    /* Availability badge */
+    .avail-badge {
+      margin-top: 1.5rem;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(123,97,255,0.08), rgba(56,189,248,0.04));
+      border: 1px solid rgba(123,97,255,0.2);
+    }
+    .avail-label {
+      font-family: var(--mono); font-size: 0.58rem;
+      color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .avail-row { display: flex; align-items: center; gap: 0.6rem; }
+    .avail-dot-wrap { position: relative; width: 8px; height: 8px; flex-shrink: 0; }
+    .avail-dot-ping {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: var(--green); opacity: 0.6;
+      animation: ping 1.5s ease-in-out infinite;
+    }
+    @keyframes ping { 0%,100% { transform:scale(1);opacity:0.6; } 50% { transform:scale(2);opacity:0; } }
+    .avail-dot { position: absolute; inset: 1px; border-radius: 50%; background: var(--green); }
+    .avail-text { font-family: var(--mono); font-size: 0.72rem; color: var(--text); }
+
+    /* Dot grid decoration */
+    .dot-grid {
+      position: absolute; bottom: 1.2rem; right: 1.2rem;
+      display: grid; grid-template-columns: repeat(4, 4px); gap: 4px; opacity: 0.15;
+    }
+    .dot-grid span { width: 4px; height: 4px; border-radius: 50%; background: var(--accent2); display: block; }
+
+    /* Footer */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      font-family: var(--mono); font-size: 0.6rem;
+      color: var(--muted); letter-spacing: 0.06em;
+    }
+    footer span { color: var(--accent); }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+    @media (max-width: 500px) {
+      main { padding: 2rem 1rem; }
+      .panel { padding: 1.5rem; }
+    }
+  </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display selection:bg-primary selection:text-black overflow-x-hidden min-h-screen flex flex-col relative">
-<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px]"></div>
-<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-900/20 blur-[120px]"></div>
-<div class="absolute top-[40%] left-[60%] w-[30%] h-[30%] rounded-full bg-cyan-900/20 blur-[100px]"></div>
-</div>
-<nav class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-light/50 dark:bg-background-dark/30 border-b border-white/5">
-<div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-<div class="flex items-center justify-between h-20">
-<div class="flex items-center gap-3">
-<a class="flex items-center gap-3 group" href="/">
-<div class="flex items-center justify-center size-8 rounded bg-gradient-to-br from-primary to-blue-600 text-background-dark">
-<span class="material-symbols-outlined text-[20px] font-bold">code</span>
-</div>
-<span class="text-lg font-bold tracking-tight">Swapnonil Nandi</span>
-</a>
-</div>
-<!-- <div class="hidden md:flex items-center gap-8">
-<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html#work">Work</a>
-<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="index.html#about">About</a>
-<a class="text-sm font-medium text-primary" href="#">Mail Me</a>
-</div>
-<div class="md:hidden text-white">
-<span class="material-symbols-outlined cursor-pointer">menu</span>
-</div> -->
-</div>
-</div>
+<body>
+
+<div class="bg-layer"></div>
+<div class="scanline"></div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+      </div>
+      <span class="nav-name">Swapnonil Nandi</span>
+    </a>
+    <span class="nav-tag">mail_me</span>
+  </div>
 </nav>
-<main class="flex-grow flex flex-col items-center justify-center px-4 py-12 relative z-10 w-full">
-<div class="w-full max-w-4xl">
-<div class="mb-6">
-<a class="inline-flex items-center gap-2 text-slate-400 hover:text-primary transition-colors group" href="/">
-<span class="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
-<span class="text-sm font-medium">Back to Home</span>
-</a>
-</div>
-<div class="relative bg-white/5 dark:bg-[#1a2c34]/40 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-12 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] overflow-hidden">
-<div class="relative z-10 grid md:grid-cols-2 gap-12">
-<div class="flex flex-col gap-8">
-<div>
-<h1 class="text-4xl font-bold tracking-tight text-white mb-4">Let's Connect</h1>
-<p class="text-slate-400 leading-relaxed">
-                            Interested in working together or just want to say hi? Drop me a message and I'll get back to you as soon as possible.
-                        </p>
-</div>
-<form action="https://formsubmit.co/contact@swapnonil.me" class="flex flex-col gap-4" method="POST" data-phantom="lead">
-<div class="space-y-2">
-<label class="text-sm font-medium text-slate-300 ml-1">Name</label>
-<input class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" name="name" placeholder="Your Name" required="" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-medium text-slate-300 ml-1">Email</label>
-<input class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" name="email" placeholder="your@email.com" required="" type="email"/>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-medium text-slate-300 ml-1">Message</label>
-<textarea class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none" name="message" placeholder="How can I help you?" required="" rows="4"></textarea>
-</div>
-<button class="w-full bg-primary text-[#101e23] font-bold py-4 rounded-lg transition-all hover:shadow-[0_0_20px_rgba(80,206,251,0.4)] hover:-translate-y-0.5 flex items-center justify-center gap-2 mt-2" type="submit">
-<span>Send Message</span>
-<span class="material-symbols-outlined text-[20px]">send</span>
-</button>
-</form>
-</div>
-<div class="flex flex-col gap-8 md:pl-8 md:border-l border-white/10">
-<div>
-<h3 class="text-xl font-bold text-white mb-2">Social Profiles</h3>
-<p class="text-slate-400 text-sm">Find me on other platforms</p>
-</div>
-<div class="flex flex-col gap-4">
-<a class="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 hover:bg-white/10 transition-all" href="https://github.com/swapn0n11" rel="noopener noreferrer" target="_blank">
-<div class="size-12 rounded-lg bg-slate-800 flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-[28px]">terminal</span>
-</div>
-<div>
-<p class="text-white font-bold group-hover:text-primary transition-colors">GitHub</p>
-<p class="text-slate-500 text-xs tracking-wide">github.com/swapn0n11</p>
-</div>
-<span class="material-symbols-outlined ml-auto text-slate-600 group-hover:translate-x-1 transition-transform">open_in_new</span>
-</a>
-<a class="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 hover:bg-white/10 transition-all" href="https://linkedin.com/in/swapnon11" rel="noopener noreferrer" target="_blank">
-<div class="size-12 rounded-lg bg-slate-800 flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-[28px]">badge</span>
-</div>
-<div>
-<p class="text-white font-bold group-hover:text-primary transition-colors">LinkedIn</p>
-<p class="text-slate-500 text-xs tracking-wide">linkedin.com/in/swapnon11</p>
-</div>
-<span class="material-symbols-outlined ml-auto text-slate-600 group-hover:translate-x-1 transition-transform">open_in_new</span>
-</a>
-<a class="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 hover:bg-white/10 transition-all" href="https://x.com/swapn_n11" rel="noopener noreferrer" target="_blank">
-<div class="size-12 rounded-lg bg-slate-800 flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-[28px]">share</span>
-</div>
-<div>
-<p class="text-white font-bold group-hover:text-primary transition-colors">Twitter / X</p>
-<p class="text-slate-500 text-xs tracking-wide">x.com/swapn_n11</p>
-</div>
-<span class="material-symbols-outlined ml-auto text-slate-600 group-hover:translate-x-1 transition-transform">open_in_new</span>
-</a>
-<a class="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 hover:bg-white/10 transition-all" href="/card.html">
-  <div class="size-12 rounded-lg bg-slate-800 flex items-center justify-center text-white">
-    <span class="material-symbols-outlined text-[28px]">contact_page</span>
+
+<main>
+  <div class="container">
+
+    <a href="/" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back to Home
+    </a>
+
+    <div class="page-header">
+      <div class="brand-row">
+        <div class="ghost-dot"></div>
+        <span class="brand-label">phantom_labs // contact</span>
+      </div>
+      <h1 class="page-title">Let's <span>Connect</span></h1>
+      <p class="page-subtitle">Interested in working together or just want to say hi?<br>Drop a message — I'll get back to you.</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- Contact form -->
+      <div class="panel">
+        <div class="dot-grid">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="panel-title">Send a Message</div>
+        <div class="panel-sub">// direct_line established</div>
+
+        <form action="https://formsubmit.co/contact@swapnonil.me" method="POST">
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://swapnonil.me/mail.html" />
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What's on your mind?" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Right panel -->
+      <div class="panel">
+        <div class="panel-title">Find Me</div>
+        <div class="panel-sub">// social_profiles + card</div>
+
+        <div class="socials">
+
+          <a href="https://github.com/swapn0n11" target="_blank" rel="noopener" class="social-link">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            </div>
+            <div class="social-text">
+              <span class="social-name">GitHub</span>
+              <span class="social-handle">github.com/swapn0n11</span>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </a>
+
+          <a href="https://linkedin.com/in/swapnon11" target="_blank" rel="noopener" class="social-link">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </div>
+            <div class="social-text">
+              <span class="social-name">LinkedIn</span>
+              <span class="social-handle">linkedin.com/in/swapnon11</span>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </a>
+
+          <a href="https://x.com/swapn_n11" target="_blank" rel="noopener" class="social-link">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.733-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <div class="social-text">
+              <span class="social-name">Twitter / X</span>
+              <span class="social-handle">x.com/swapn_n11</span>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </a>
+
+          <a href="/card.html" class="social-link">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+            </div>
+            <div class="social-text">
+              <span class="social-name">Share my Card</span>
+              <span class="social-handle">swapnonil.me/card</span>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </a>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="avail-badge">
+          <div class="avail-label">// availability</div>
+          <div class="avail-row">
+            <div class="avail-dot-wrap">
+              <div class="avail-dot-ping"></div>
+              <div class="avail-dot"></div>
+            </div>
+            <span class="avail-text">Open for freelance & collaborations</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-  <div>
-    <p class="text-white font-bold group-hover:text-primary transition-colors">Share my Card</p>
-    <p class="text-slate-500 text-xs tracking-wide">swapnonil.me/card</p>
-  </div>
-  <span class="material-symbols-outlined ml-auto text-slate-600 group-hover:translate-x-1 transition-transform">open_in_new</span>
-</a>
-</div>
-<div class="mt-auto p-6 rounded-xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20">
-<h4 class="text-primary font-bold text-sm uppercase tracking-widest mb-2">Availability</h4>
-<div class="flex items-center gap-2">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-</span>
-<p class="text-slate-300 text-sm">Open for freelance &amp; collaborations</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </main>
-<footer class="relative z-10 py-6 border-t border-white/5 bg-background-dark/50 backdrop-blur-sm">
-<div class="max-w-7xl mx-auto px-6 text-center">
-<p class="text-slate-500 text-sm">© 2026 Swapnonil Nandi. All rights reserved.</p>
-</div>
+
+<footer>
+  <span>phantom_labs</span> // © 2026 Swapnonil Nandi. All rights reserved.
 </footer>
 
-</body></html>
+</body>
+</html>
