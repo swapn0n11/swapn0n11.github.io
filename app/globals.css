@@ -301,7 +301,7 @@ footer {
 /* ── Mail ── */
 .mail-main { position: relative; z-index: 1; flex: 1; padding: 3rem 1.5rem; min-width: 0;}
 .mail-container { max-width: 1000px; margin: 0 auto; width: 100%;}
-.mail-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.35s; }
+.mail-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.35s;}
 @media (max-width: 750px) { .mail-grid { grid-template-columns: 1fr; } }
 
 .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; backdrop-filter: blur(16px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
