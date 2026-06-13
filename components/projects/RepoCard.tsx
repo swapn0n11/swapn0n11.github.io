@@ -57,3 +57,5 @@ interface Repo {
       </a>
     )
   }
+
+  myUndefinedFunction();
