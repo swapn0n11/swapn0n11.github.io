@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Home() {
   return (
@@ -99,6 +100,7 @@ export default function Home() {
             alt email
           </a>
         </div>
+        <SpeedInsights/>
 
       </div>
     </section>
