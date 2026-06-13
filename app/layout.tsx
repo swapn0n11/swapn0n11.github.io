@@ -23,6 +23,9 @@ const syne = Syne({
 export const metadata: Metadata = {
   title: "Swapnonil Nandi — Founder @ Phantom Labss",
   description: "Software developer & security researcher. Crafting privacy-first digital experiences. Founder @ Phantom Labss.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
