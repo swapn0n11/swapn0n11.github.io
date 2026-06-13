@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import BgLayer from "@/components/BgLayer";
 import Scanline from "@/components/Scanline";
 
+import { Analytics } from "@vercel/analytics/next"
+
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
   variable: "--font-mono",
@@ -36,6 +38,7 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
+        <Analytics/>
       </body>
     </html>
   )
