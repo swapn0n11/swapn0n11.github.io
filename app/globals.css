@@ -332,41 +332,146 @@ footer {
   cursor: pointer; transition: all 0.2s; position: relative; 
   box-shadow: 0 0 20px rgba(123,97,255,0.3);
 }
+.submit-btn.success {
+  box-shadow:
+    0 0 20px rgba(74,222,128,.35),
+    0 0 50px rgba(74,222,128,.2);
+}
 .submit-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 0 30px rgba(123,97,255,0.5); }
 .submit-btn:disabled { cursor: not-allowed; opacity: 0.8; }
 
-.btn-icon-wrap { position: relative; width: 20px; height: 20px; flex-shrink: 0; }
-.btn-icon {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none;
+.btn-icon-wrap {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: visible;
 }
 
-/* plane visible by default, everything else hidden */
-.btn-plane { opacity: 1; transition: opacity 0.2s; }
-.btn-plane.fly-out { animation: flyOut 0.45s cubic-bezier(0.4,0,1,1) forwards; }
+.btn-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-.btn-envelope { opacity: 0; transition: opacity 0.15s; }
-.btn-envelope.env-in     { opacity: 1; animation: envIn 0.42s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-.btn-envelope.env-wobble { opacity: 1; animation: envWobble 0.5s ease 0s 2; }
-.btn-envelope.env-out    { opacity: 1; animation: envOut 0.32s ease forwards; }
+/* Plane */
 
-.btn-tick { opacity: 0; transition: opacity 0.15s; }
-.btn-tick.tick-in { opacity: 1; animation: tickIn 0.38s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+.btn-plane {
+  opacity: 1;
+}
 
-.tick-path.draw { animation: tickDraw 0.35s ease 0.25s forwards; }
+.btn-plane.fly-out { animation: planeFly 0.45s cubic-bezier(.4,0,.2,1) forwards; }
 
-.btn-label { transition: opacity 0.2s; white-space: nowrap; }
-.btn-label.fade-out { opacity: 0; }
-.btn-label.label-success { color: var(--green); }
-.btn-label.label-error { color: #f87171; }
+@keyframes planeFly {
+  0% {
+    transform: translate(0,0) rotate(0deg);
+    opacity: 1;
+  }
 
-@keyframes flyOut { to { transform: translate(60px,-60px) scale(0.5); opacity: 0; } }
-@keyframes envIn { from { transform: translateY(20px) scale(0.8); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
-@keyframes envWobble { 0%,100% { transform: rotate(0deg); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
-@keyframes envOut { to { transform: translateY(-30px) scale(0.6); opacity: 0; } }
-@keyframes tickIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-@keyframes tickDraw { to { stroke-dashoffset: 0; } }
+  100% {
+    transform: translate(70px,-55px) rotate(15deg) scale(.5);
+    opacity: 0;
+  }
+}
+
+/* Envelope */
+
+.btn-envelope { opacity: 0; }
+.btn-envelope.env-in     { animation: envelopeIn .45s cubic-bezier(.34,1.56,.64,1) forwards; }
+
+@keyframes envelopeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(.6);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.btn-envelope.env-wobble { opacity: 1; animation: wobble .9s ease-in-out infinite; }
+
+@keyframes wobble {
+  0%,100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-8deg);
+  }
+
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+.btn-envelope.env-out    { opacity: 1; animation: envelopeSend .35s ease forwards; }
+
+@keyframes envelopeSend {
+  to {
+    opacity: 0;
+    transform: translateY(-45px) scale(.55);
+  }
+}
+
+/* Tick */
+
+.btn-tick { opacity: 0; }
+.btn-tick.tick-in { animation: tickAppear .4s cubic-bezier(.34,1.56,.64,1) forwards; }
+
+@keyframes tickAppear {
+  0% {
+    opacity: 0;
+    transform: scale(.3);
+  }
+
+  80% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.tick-path {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+}
+
+.tick-path.draw {
+  animation: drawTick .35s ease .15s forwards;
+}
+
+@keyframes drawTick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.btn-label {
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    color .25s ease;
+}
+
+.btn-label.fade-out {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.btn-label.label-success {
+  color: var(--green);
+}
+
+.btn-label.label-error {
+  color: #f87171;
+}
 
 /* Socials */
 .socials { display: flex; flex-direction: column; gap: 0.75rem; }

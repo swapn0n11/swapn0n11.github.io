@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react'
 import Link from 'next/link'
 
-type Phase = 'idle' | 'flying' | 'envelope' | 'wobble' | 'sending' | 'tick' | 'done'
+type Phase = 'idle' | 'flying' | 'envelope' | 'wobble' | 'sending' | 'tick' | 'done' | 'error'
 
 export default function Mail() {
   const [phase, setPhase] = useState<Phase>('idle')
@@ -24,7 +24,7 @@ export default function Mail() {
 
     // Phase 1 — plane flies out
     setPhase('flying')
-    await delay(420)
+    await delay(450)
 
     // Phase 2 — envelope slides in
     setPhase('envelope')
@@ -32,27 +32,49 @@ export default function Mail() {
 
     // Phase 3 — wobble
     setPhase('wobble')
-    await delay(1050)
-
-    // Phase 4 — envelope flies out, send request
-    setPhase('sending')
-    const res = await fetch('/api/contact', {
+    const resPromise = fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     })
-    await delay(340)
+    await delay(900)
 
-    // Phase 5 — tick
-    setPhase('tick')
-    setStatus(res.ok ? 'success' : 'error')
-    await delay(2500)
+    // Phase 4 — envelope flies out, send request
+    setPhase('sending')
+    const res = await resPromise
+    await delay(250)
 
-    // Reset
-    setPhase('done')
-    await delay(350)
-    setPhase('idle')
-    if (res.ok) form.reset()
+    try {
+      const res = await resPromise
+
+      await delay(250)
+
+      setPhase('tick')
+      setStatus(res.ok ? 'success' : 'error')
+
+      await delay(2200)
+
+      setPhase('done')
+
+      await delay(400)
+
+      if (res.ok) {
+        form.reset()
+      }
+
+      setPhase('idle')
+    } catch {
+      setStatus('error')
+      setPhase('tick')
+
+      await delay(2200)
+
+      setPhase('done')
+
+      await delay(400)
+
+      setPhase('idle')
+    }
   }
 
   return (
@@ -105,32 +127,54 @@ export default function Mail() {
               {/* Honeypot */}
               <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} aria-hidden="true" />
 
-              <button type="submit" className={`submit-btn ${phase !== 'idle' && phase !== 'done' ? 'animating' : ''}`} disabled={phase !== 'idle' && phase !== 'done'}>
+              <button type="submit" className={`submit-btn ${phase !== 'idle' ? 'animating' : ''} ${status === 'success' && phase === 'tick' ? 'success' : ''}`}>
                 <div className="btn-icon-wrap">
-                  {/* Plane — visible by default */}
-                  <span className={`btn-icon btn-plane ${phase === 'flying' ? 'fly-out' : ''}`}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" /></svg>
+
+                  {/* Plane */}
+                  <span
+                    className={`btn-icon btn-plane ${phase === 'flying' ? 'fly-out' : ''
+                      }`}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                    </svg>
                   </span>
 
                   {/* Envelope */}
-                  <span className={`btn-icon btn-envelope
+                  <span
+                    className={`btn-icon btn-envelope
     ${phase === 'envelope' ? 'env-in' : ''}
     ${phase === 'wobble' ? 'env-wobble' : ''}
     ${phase === 'sending' ? 'env-out' : ''}
-  `}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+  `}
+                  >
+                    ✉
                   </span>
 
                   {/* Tick */}
-                  <span className={`btn-icon btn-tick ${phase === 'tick' ? 'tick-in' : ''}`}>
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                      <circle cx="11" cy="11" r="10" fill="rgba(74,222,128,0.18)" stroke="#4ade80" strokeWidth="1.5" />
+                  <span
+                    className={`btn-icon btn-tick ${phase === 'tick' ? 'tick-in' : ''
+                      }`}
+                  >
+                    <svg width="22" height="22" viewBox="0 0 22 22">
+                      <circle
+                        cx="11"
+                        cy="11"
+                        r="10"
+                        fill="rgba(74,222,128,0.15)"
+                        stroke="#4ade80"
+                        strokeWidth="1.5"
+                      />
+
                       <polyline
-                        className={`tick-path ${phase === 'tick' ? 'draw' : ''}`}
+                        className={`tick-path ${phase === 'tick' ? 'draw' : ''
+                          }`}
                         points="6,11 9.5,14.5 16,8"
-                        fill="none" stroke="#4ade80" strokeWidth="2.2"
-                        strokeLinecap="round" strokeLinejoin="round"
-                        strokeDasharray="40" strokeDashoffset="40"
+                        fill="none"
+                        stroke="#4ade80"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
